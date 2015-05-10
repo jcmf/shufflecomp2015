@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>Jacques&apos;s Guide to ShuffleComp 2015</title><script>(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Jacques&apos;s Guide to ShuffleComp 2015</title><script>(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var jade = require("jade/runtime");
 
 module.exports = function template(locals) {
@@ -23,6 +23,73 @@ else if ( game.disclosure)
 {
 buf.push("<span title=\"Full disclosure: I helped test this game.\" class=\"disclosure\">*</span>");
 }
+else if ( game.songs.length == 1 && game.songs[0].disclosure)
+{
+buf.push("<span title=\"Full disclosure: I suggested the song that inspired this game.\" class=\"disclosure\">*</span>");
+}
+else
+{
+var count = 0;
+for (var i = 0; i < game.songs.length; ++i) { if (game.songs[i].disclosure) ++count; }
+if ( count == 1)
+{
+buf.push("<span title=\"Full disclosure: I suggested one of the songs that inspired this game.\" class=\"disclosure\">*</span>");
+}
+else if ( count > 1)
+{
+buf.push("<span title=\"Full disclosure: I suggested several of the songs that inspired this game.\" class=\"disclosure\">*</span>");
+}
+}
+buf.push("</div><div class=\"author\">" + (jade.escape(null == (jade_interp = game.author) ? "" : jade_interp)) + "</div><div class=\"links\">");
+if ( game.play)
+{
+buf.push("<a" + (jade.attr("href", game.play, true, false)) + " target=\"_blank\" class=\"play\">play</a>");
+}
+if ( game.download)
+{
+buf.push("<a" + (jade.attr("href", game.download, true, false)) + " class=\"download\">download</a>");
+}
+if ( game.hints)
+{
+buf.push("<a" + (jade.attr("href", game.hints, true, false)) + " target=\"_blank\" class=\"hints\">hints</a>");
+}
+if ( game.walkthrough)
+{
+buf.push("<a" + (jade.attr("href", game.walkthrough, true, false)) + " target=\"_blank\" class=\"walkthrough\">walkthrough</a>");
+}
+buf.push("</div><div class=\"songs\">");
+// iterate game.songs
+;(function(){
+  var $$obj = game.songs;
+  if ('number' == typeof $$obj.length) {
+
+    for (var $index = 0, $$l = $$obj.length; $index < $$l; $index++) {
+      var song = $$obj[$index];
+
+buf.push("<div class=\"song\"><div class=\"name\">" + (jade.escape(null == (jade_interp = song.name) ? "" : jade_interp)));
+if ( song.disclosure)
+{
+buf.push("<span title=\"Full disclosure: I suggested this song.\" class=\"disclosure\">*</span>");
+}
+buf.push("</div><div class=\"author\">" + (jade.escape(null == (jade_interp = song.author) ? "" : jade_interp)) + "</div><a" + (jade.attr("href", song.play, true, false)) + " target=\"_blank\" class=\"play\">play</a></div>");
+    }
+
+  } else {
+    var $$l = 0;
+    for (var $index in $$obj) {
+      $$l++;      var song = $$obj[$index];
+
+buf.push("<div class=\"song\"><div class=\"name\">" + (jade.escape(null == (jade_interp = song.name) ? "" : jade_interp)));
+if ( song.disclosure)
+{
+buf.push("<span title=\"Full disclosure: I suggested this song.\" class=\"disclosure\">*</span>");
+}
+buf.push("</div><div class=\"author\">" + (jade.escape(null == (jade_interp = song.author) ? "" : jade_interp)) + "</div><a" + (jade.attr("href", song.play, true, false)) + " target=\"_blank\" class=\"play\">play</a></div>");
+    }
+
+  }
+}).call(this);
+
 buf.push("</div></div>");
     }
 
@@ -40,6 +107,73 @@ else if ( game.disclosure)
 {
 buf.push("<span title=\"Full disclosure: I helped test this game.\" class=\"disclosure\">*</span>");
 }
+else if ( game.songs.length == 1 && game.songs[0].disclosure)
+{
+buf.push("<span title=\"Full disclosure: I suggested the song that inspired this game.\" class=\"disclosure\">*</span>");
+}
+else
+{
+var count = 0;
+for (var i = 0; i < game.songs.length; ++i) { if (game.songs[i].disclosure) ++count; }
+if ( count == 1)
+{
+buf.push("<span title=\"Full disclosure: I suggested one of the songs that inspired this game.\" class=\"disclosure\">*</span>");
+}
+else if ( count > 1)
+{
+buf.push("<span title=\"Full disclosure: I suggested several of the songs that inspired this game.\" class=\"disclosure\">*</span>");
+}
+}
+buf.push("</div><div class=\"author\">" + (jade.escape(null == (jade_interp = game.author) ? "" : jade_interp)) + "</div><div class=\"links\">");
+if ( game.play)
+{
+buf.push("<a" + (jade.attr("href", game.play, true, false)) + " target=\"_blank\" class=\"play\">play</a>");
+}
+if ( game.download)
+{
+buf.push("<a" + (jade.attr("href", game.download, true, false)) + " class=\"download\">download</a>");
+}
+if ( game.hints)
+{
+buf.push("<a" + (jade.attr("href", game.hints, true, false)) + " target=\"_blank\" class=\"hints\">hints</a>");
+}
+if ( game.walkthrough)
+{
+buf.push("<a" + (jade.attr("href", game.walkthrough, true, false)) + " target=\"_blank\" class=\"walkthrough\">walkthrough</a>");
+}
+buf.push("</div><div class=\"songs\">");
+// iterate game.songs
+;(function(){
+  var $$obj = game.songs;
+  if ('number' == typeof $$obj.length) {
+
+    for (var $index = 0, $$l = $$obj.length; $index < $$l; $index++) {
+      var song = $$obj[$index];
+
+buf.push("<div class=\"song\"><div class=\"name\">" + (jade.escape(null == (jade_interp = song.name) ? "" : jade_interp)));
+if ( song.disclosure)
+{
+buf.push("<span title=\"Full disclosure: I suggested this song.\" class=\"disclosure\">*</span>");
+}
+buf.push("</div><div class=\"author\">" + (jade.escape(null == (jade_interp = song.author) ? "" : jade_interp)) + "</div><a" + (jade.attr("href", song.play, true, false)) + " target=\"_blank\" class=\"play\">play</a></div>");
+    }
+
+  } else {
+    var $$l = 0;
+    for (var $index in $$obj) {
+      $$l++;      var song = $$obj[$index];
+
+buf.push("<div class=\"song\"><div class=\"name\">" + (jade.escape(null == (jade_interp = song.name) ? "" : jade_interp)));
+if ( song.disclosure)
+{
+buf.push("<span title=\"Full disclosure: I suggested this song.\" class=\"disclosure\">*</span>");
+}
+buf.push("</div><div class=\"author\">" + (jade.escape(null == (jade_interp = song.author) ? "" : jade_interp)) + "</div><a" + (jade.attr("href", song.play, true, false)) + " target=\"_blank\" class=\"play\">play</a></div>");
+    }
+
+  }
+}).call(this);
+
 buf.push("</div></div>");
     }
 
