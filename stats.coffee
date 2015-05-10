@@ -3,7 +3,6 @@
 assert = require 'assert'
 games = require './games'
 questions = require './questions'
-console.log questions.length
 
 min = {}
 max = {}
@@ -20,7 +19,6 @@ for q in questions
       assert typeof(v) is 'number', {q: q.q, a: a.a, k, v}
       (scores[k] or= []).push v
   for k, v of scores
-    console.log {k, v}
     min[k] = min[k] + Math.min 0, v...
     max[k] = max[k] + Math.max 0, v...
 
