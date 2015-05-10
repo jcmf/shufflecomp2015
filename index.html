@@ -11552,7 +11552,9 @@ hashchange = function() {
   prev = hash;
   $('#loading').show();
   $('.pane').hide();
-  if (m = /^\/games=([a-z]*)$/.exec(hash)) {
+  if (!hash) {
+    $('#home').show();
+  } else if (m = /^\/games=([a-z]*)$/.exec(hash)) {
     showGames(m[1]);
   } else if (m = /^!([0-9]*)$/.exec(hash)) {
     showQuestion(m[1]);
@@ -11573,6 +11575,27 @@ $(function() {
 
 
 },{"./game.jade":1,"./games.coffee":2,"./question.jade":11,"./questions.coffee":12,"assert":3,"jquery":10}]},{},[13]);
-</script><style></style></head><body><h1 id="jacques-s-guide-to-shufflecomp-2015">Jacques&apos;s Guide to ShuffleComp 2015</h1>
-<p>Hi, my name is Jacques Frechet and this right here is a placeholder.</p>
-</body></html>
+</script><style></style></head><body><div id="home" class="pane"><h1 id="jacques-s-guide-to-shufflecomp-2015">Jacques&apos;s Guide to ShuffleComp 2015</h1>
+<p>Hi, my name is Jacques Frechet and this right here is a
+placeholder for the front page for this quiz thing.</p>
+<p><a href="#!">start</a></p>
+</div><div id="loading"><p>loading omg plz wait plz thx</p>
+</div><div id="404-pane" style="display: none;" class="pane"><h2 id="page-not-found-omg-what-do-we-do-panic-probably">page not found, omg, what do we do, panic probably</h2>
+<p>This is definitely a bug!  Unless you were intentionally
+monkeying with the URL bar or something, in which case it&apos;s
+probably your fault somehow so shame on you I guess?</p>
+<p>Anyway maybe try using your browser&apos;s back button or go
+back to the <a href="#">beginning</a> or something, gosh, I don&apos;t know,
+don&apos;t look at me, it was never supposed to come to this,
+how did this even happen, omg, panic!</p>
+<p>Oh, wait, maybe some of the questions changed out from under
+you or something, and you&apos;re following an old link that is
+no longer valid?  That seems like a way that this could
+happen.  I guess that&apos;s not a bug?  I mean it seems kind
+of poor.  Probably you should assume it&apos;s a bug just to be
+safe.  Because assuming that things are bugs will increase
+your safety somehow I guess.  Safety is important!  Be safe!</p>
+</div><div id="question" style="display: none;" class="pane"><div id="question-container"></div></div><div id="results" style="display: none;" class="pane"><p>omg you answered all of the questions here is a
+<a class="results">link</a>
+to your prize!</p>
+</div><div id="games" style="display: none;" class="pane"><div id="games-container"></div></div></body></html>

@@ -71,7 +71,8 @@ hashchange = ->
   prev = hash
   $('#loading').show()
   $('.pane').hide()
-  if m = /^\/games=([a-z]*)$/.exec hash then showGames m[1]
+  if not hash then $('#home').show()
+  else if m = /^\/games=([a-z]*)$/.exec hash then showGames m[1]
   else if m = /^!([0-9]*)$/.exec hash then showQuestion m[1]
   else if m = /^\/(\w+)$/.exec hash then showPane m[1]
   else notFound "'#{hash}'"

@@ -6,8 +6,48 @@ html(lang='en')
     style
       :stylus
   body
-    :markdown
-      # Jacques's Guide to ShuffleComp 2015
+    #home.pane
+      :markdown
+        # Jacques's Guide to ShuffleComp 2015
 
-      Hi, my name is Jacques Frechet and this right here is a placeholder.
+        Hi, my name is Jacques Frechet and this right here is a
+        placeholder for the front page for this quiz thing.
 
+        [start](#!)
+
+    #loading
+      :markdown
+        loading omg plz wait plz thx
+
+    #404-pane.pane(style='display: none;')
+      :markdown
+        ## page not found, omg, what do we do, panic probably
+
+        This is definitely a bug!  Unless you were intentionally
+        monkeying with the URL bar or something, in which case it's
+        probably your fault somehow so shame on you I guess?
+
+        Anyway maybe try using your browser's back button or go
+        back to the [beginning](#) or something, gosh, I don't know,
+        don't look at me, it was never supposed to come to this,
+        how did this even happen, omg, panic!
+
+        Oh, wait, maybe some of the questions changed out from under
+        you or something, and you're following an old link that is
+        no longer valid?  That seems like a way that this could
+        happen.  I guess that's not a bug?  I mean it seems kind
+        of poor.  Probably you should assume it's a bug just to be
+        safe.  Because assuming that things are bugs will increase
+        your safety somehow I guess.  Safety is important!  Be safe!
+
+    #question.pane(style='display: none;')
+      #question-container
+
+    #results.pane(style='display: none;')
+      :markdown
+        omg you answered all of the questions here is a
+        <a class='results'>link</a>
+        to your prize!
+
+    #games.pane(style='display: none;')
+      #games-container
