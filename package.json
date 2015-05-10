@@ -1,0 +1,19 @@
+{
+  "name": "shufflecomp2015",
+  "version": "1.0.0",
+  "description": "Jacques's Guide to ShuffleComp 2015",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gribbl": "^1.2.3",
+    "jquery": "^2.1.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "shufflecomp"
+  ],
+  "author": "Jacques Frechet",
+  "license": "MIT"
+}
