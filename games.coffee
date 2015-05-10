@@ -1,4 +1,4 @@
-exports =
+module.exports =
   lake:
     name: 'By the Lake'
     author: 'Eldridge Murray'
