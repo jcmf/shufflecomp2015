@@ -5,11 +5,19 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
+    "coffeeify": "^1.1.0",
     "gribbl": "^1.2.3",
-    "jquery": "^2.1.4"
+    "jquery": "^2.1.4",
+    "stylus": "^0.51.1"
+  },
+  "browserify": {
+    "transform": [
+      "coffeeify"
+    ]
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublish": "gribbl *.jade",
+    "test": "./stats.coffee"
   },
   "keywords": [
     "shufflecomp"

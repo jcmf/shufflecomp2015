@@ -1,3 +1,3 @@
 jquery = require 'jquery'
-questions = require './questions'
-games = require './games'
+questions = require './questions.coffee'
+games = require './games.coffee'
