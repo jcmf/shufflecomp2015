@@ -1,0 +1,38 @@
+each game in games
+  .game
+    .name
+      =game.name
+      if game.author == 'Jacques Frechet'
+        span.disclosure(title='Full disclosure: I wrote this game.') ='*'
+      else if game.disclosure
+        span.disclosure(title='Full disclosure: I helped test this game.') ='*'
+//-      else if game.songs.length == 1 && game.songs[0].disclosure
+//-        span.disclosure(title='Full disclosure: I suggested the song that inspired this game.') ='*'
+//-      else
+//-        - var count = 0;
+//-        - for (var i = 0; i < game.songs.length; ++i) { if (game.songs[i].disclosure) ++count; }
+//-        if count == 1
+//-          span.disclosure(title='Full disclosure: 'I suggested one of the songs that inspired this game.') ='*'
+//-        else if count > 1
+//-          span.disclosure(title='Full disclosure: 'I suggested several of the songs that inspired this game.') ='*'
+    .author= game.author
+    .links
+      if game.play
+        a.play(href=game.play, target='_blank') play
+      if game.download
+        a.download(href=game.download) download
+      if game.hints
+        a.hints(href=game.hints, target='_blank') hints
+      if game.walkthrough
+        a.walkthrough(href=game.walkthrough target='_blank') walkthrough
+    .songs
+      each song in game.songs
+        .song
+          .name
+            =song.name
+            if song.disclosure
+              span.disclosure(title='Full disclosure: I suggested this song.')
+                ='*'
+          .author= song.author
+          a.play(href=song.play, target='_blank') play
+

@@ -5,19 +5,22 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
+    "browserify": "^10.1.3",
     "coffee-script": "^1.9.2",
     "coffeeify": "^1.1.0",
     "gribbl": "^1.2.3",
+    "jade": "^1.9.2",
+    "jadeify": "^4.3.0",
     "jquery": "^2.1.4",
     "stylus": "^0.51.1"
   },
   "browserify": {
     "transform": [
-      "coffeeify"
+      "coffeeify", "jadeify"
     ]
   },
   "scripts": {
-    "prepublish": "gribbl *.jade",
+    "prepublish": "gribbl index.jade",
     "test": "./stats.coffee"
   },
   "keywords": [
