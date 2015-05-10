@@ -20,20 +20,22 @@ showQuestion = (numbers) ->
   scores = {}
   for k in allGames
     scores[k] = 0
+  nextQ = questions[0]
   for ch, iQ in numbers
     q = questions[iQ]
     nextQ = questions[iQ + 1]
     if not q then return notFound "too many answers: '#{ch}' pos=#{iQ}"
-    a = q.a[ch.charCodeAt(0) - '0'.charCodeAt(0)]
+    if ch is '0' then continue
+    a = q.a[ch.charCodeAt(0) - '1'.charCodeAt(0)]
     if not a then return notFound "bad answer '#{ch}' pos=#{iQ} q='#{q.q}'"
-    for k, v of a where k != 'a'
+    for k, v of a when k != 'a'
       scores[k] += v
   if nextQ
     $q = $ '#question-container'
     $q.empty()
     template = require './question.jade'
     $q.append template q: nextQ, mkUrl: (i) ->
-      "#!#{numbers}#{String.fromCharCode '0'.charCodeAt(0)+i}"
+      "#!#{numbers}#{String.fromCharCode '1'.charCodeAt(0)+i}"
     $('#question').show()
   else
     myGames = allGames[..]
@@ -43,6 +45,8 @@ showQuestion = (numbers) ->
       rand[k] = Math.random()
       gameToLetter[k] = String.fromCharCode i + 'a'.codePointAt(0)
     myGames.sort (a, b) -> (scores[b] - scores[a]) or (rand[b] - rand[a])
+    for XXX in myGames
+      console.log "XXX #{scores[XXX]} #{XXX}"
     url = "#/games=#{(gameToLetter[k] for k in myGames).join ''}"
     $('.results').attr 'href', url
     $('#results').show()

@@ -1,3 +1,5 @@
-.q= q.q
-each a, i in q.a
-  a.a(href=mkUrl(i))= a.a
+.question= q.q
+.answers
+  each a, i in q.a
+    a.answer(href=mkUrl(i))= a.a
+  a.answer.skip(href=mkUrl(-1)) (skip this question)

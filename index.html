@@ -11007,7 +11007,7 @@ var buf = [];
 var jade_mixins = {};
 var jade_interp;
 ;var locals_for_with = (locals || {});(function (mkUrl, q, undefined) {
-buf.push("<div class=\"q\">" + (jade.escape(null == (jade_interp = q.q) ? "" : jade_interp)) + "</div>");
+buf.push("<div class=\"question\">" + (jade.escape(null == (jade_interp = q.q) ? "" : jade_interp)) + "</div><div class=\"answers\">");
 // iterate q.a
 ;(function(){
   var $$obj = q.a;
@@ -11016,7 +11016,7 @@ buf.push("<div class=\"q\">" + (jade.escape(null == (jade_interp = q.q) ? "" : j
     for (var i = 0, $$l = $$obj.length; i < $$l; i++) {
       var a = $$obj[i];
 
-buf.push("<a" + (jade.attr("href", mkUrl(i), true, false)) + " class=\"a\">" + (jade.escape(null == (jade_interp = a.a) ? "" : jade_interp)) + "</a>");
+buf.push("<a" + (jade.attr("href", mkUrl(i), true, false)) + " class=\"answer\">" + (jade.escape(null == (jade_interp = a.a) ? "" : jade_interp)) + "</a>");
     }
 
   } else {
@@ -11024,12 +11024,13 @@ buf.push("<a" + (jade.attr("href", mkUrl(i), true, false)) + " class=\"a\">" + (
     for (var i in $$obj) {
       $$l++;      var a = $$obj[i];
 
-buf.push("<a" + (jade.attr("href", mkUrl(i), true, false)) + " class=\"a\">" + (jade.escape(null == (jade_interp = a.a) ? "" : jade_interp)) + "</a>");
+buf.push("<a" + (jade.attr("href", mkUrl(i), true, false)) + " class=\"answer\">" + (jade.escape(null == (jade_interp = a.a) ? "" : jade_interp)) + "</a>");
     }
 
   }
 }).call(this);
-}.call(this,"mkUrl" in locals_for_with?locals_for_with.mkUrl:typeof mkUrl!=="undefined"?mkUrl:undefined,"q" in locals_for_with?locals_for_with.q:typeof q!=="undefined"?q:undefined,"undefined" in locals_for_with?locals_for_with.undefined:typeof undefined!=="undefined"?undefined:undefined));;return buf.join("");
+
+buf.push("<a" + (jade.attr("href", mkUrl(-1), true, false)) + " class=\"answer skip\">(skip this question)</a></div>");}.call(this,"mkUrl" in locals_for_with?locals_for_with.mkUrl:typeof mkUrl!=="undefined"?mkUrl:undefined,"q" in locals_for_with?locals_for_with.q:typeof q!=="undefined"?q:undefined,"undefined" in locals_for_with?locals_for_with.undefined:typeof undefined!=="undefined"?undefined:undefined));;return buf.join("");
 };
 },{"jade/runtime":9}],12:[function(require,module,exports){
 module.exports = [
@@ -11588,12 +11589,13 @@ showPane = function(name) {
 };
 
 showQuestion = function(numbers) {
-  var $q, a, ch, gameToLetter, i, iQ, j, l, len, len1, len2, myGames, n, nextQ, q, rand, ref, scores, template, url, v;
+  var $q, XXX, a, ch, gameToLetter, i, iQ, j, l, len, len1, len2, len3, myGames, n, nextQ, o, q, rand, scores, template, url, v;
   scores = {};
   for (j = 0, len = allGames.length; j < len; j++) {
     k = allGames[j];
     scores[k] = 0;
   }
+  nextQ = questions[0];
   for (iQ = l = 0, len1 = numbers.length; l < len1; iQ = ++l) {
     ch = numbers[iQ];
     q = questions[iQ];
@@ -11601,14 +11603,18 @@ showQuestion = function(numbers) {
     if (!q) {
       return notFound("too many answers: '" + ch + "' pos=" + iQ);
     }
-    a = q.a[ch.charCodeAt(0) - '0'.charCodeAt(0)];
+    if (ch === '0') {
+      continue;
+    }
+    a = q.a[ch.charCodeAt(0) - '1'.charCodeAt(0)];
     if (!a) {
       return notFound("bad answer '" + ch + "' pos=" + iQ + " q='" + q.q + "'");
     }
-    ref = a(where(k !== 'a'));
-    for (k in ref) {
-      v = ref[k];
-      scores[k] += v;
+    for (k in a) {
+      v = a[k];
+      if (k !== 'a') {
+        scores[k] += v;
+      }
     }
   }
   if (nextQ) {
@@ -11618,7 +11624,7 @@ showQuestion = function(numbers) {
     $q.append(template({
       q: nextQ,
       mkUrl: function(i) {
-        return "#!" + numbers + (String.fromCharCode('0'.charCodeAt(0) + i));
+        return "#!" + numbers + (String.fromCharCode('1'.charCodeAt(0) + i));
       }
     }));
     return $('#question').show();
@@ -11634,11 +11640,15 @@ showQuestion = function(numbers) {
     myGames.sort(function(a, b) {
       return (scores[b] - scores[a]) || (rand[b] - rand[a]);
     });
+    for (o = 0, len3 = myGames.length; o < len3; o++) {
+      XXX = myGames[o];
+      console.log("XXX " + scores[XXX] + " " + XXX);
+    }
     url = "#/games=" + (((function() {
-      var len3, o, results;
+      var len4, p, results;
       results = [];
-      for (o = 0, len3 = myGames.length; o < len3; o++) {
-        k = myGames[o];
+      for (p = 0, len4 = myGames.length; p < len4; p++) {
+        k = myGames[p];
         results.push(gameToLetter[k]);
       }
       return results;
