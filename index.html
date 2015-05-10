@@ -17,11 +17,11 @@ var jade_interp;
 buf.push("<div class=\"game\"><div class=\"name\">" + (jade.escape(null == (jade_interp = game.name) ? "" : jade_interp)));
 if ( game.author == 'Jacques Frechet')
 {
-buf.push("<span title=\"Full disclosure: I wrote this game.\" class=\"disclosure\">='*'</span>");
+buf.push("<span title=\"Full disclosure: I wrote this game.\" class=\"disclosure\">*</span>");
 }
 else if ( game.disclosure)
 {
-buf.push("<span title=\"Full disclosure: I helped test this game.\" class=\"disclosure\">='*'</span>");
+buf.push("<span title=\"Full disclosure: I helped test this game.\" class=\"disclosure\">*</span>");
 }
 buf.push("</div></div>");
     }
@@ -34,11 +34,11 @@ buf.push("</div></div>");
 buf.push("<div class=\"game\"><div class=\"name\">" + (jade.escape(null == (jade_interp = game.name) ? "" : jade_interp)));
 if ( game.author == 'Jacques Frechet')
 {
-buf.push("<span title=\"Full disclosure: I wrote this game.\" class=\"disclosure\">='*'</span>");
+buf.push("<span title=\"Full disclosure: I wrote this game.\" class=\"disclosure\">*</span>");
 }
 else if ( game.disclosure)
 {
-buf.push("<span title=\"Full disclosure: I helped test this game.\" class=\"disclosure\">='*'</span>");
+buf.push("<span title=\"Full disclosure: I helped test this game.\" class=\"disclosure\">*</span>");
 }
 buf.push("</div></div>");
     }
@@ -252,7 +252,7 @@ module.exports = {
     ]
   },
   dreamland: {
-    name: 'Running Down a Dreamland by Wes Eas',
+    name: 'Running Down a Dreamland',
     author: 'Wes Eas',
     play: 'http://www.nigeljayne.ca/scd2downloads/dreamland_shuffle_final.html',
     songs: [
@@ -11418,11 +11418,11 @@ module.exports = [
 
 
 },{}],13:[function(require,module,exports){
-var allGames, assert, games, hashchange, jquery, k, notFound, prev, questions, showGames, showPane, showQuestion;
+var $, allGames, assert, games, hashchange, k, notFound, prev, questions, showGames, showPane, showQuestion;
 
 assert = require('assert');
 
-jquery = require('jquery');
+$ = require('jquery');
 
 questions = require('./questions.coffee');
 
@@ -11579,7 +11579,7 @@ $(function() {
 <p>Hi, my name is Jacques Frechet and this right here is a
 placeholder for the front page for this quiz thing.</p>
 <p><a href="#!">start</a></p>
-</div><div id="loading"><p>loading omg plz wait plz thx</p>
+</div><div id="loading" style="display: none;"><p>loading omg plz wait plz thx</p>
 </div><div id="404-pane" style="display: none;" class="pane"><h2 id="page-not-found-omg-what-do-we-do-panic-probably">page not found, omg, what do we do, panic probably</h2>
 <p>This is definitely a bug!  Unless you were intentionally
 monkeying with the URL bar or something, in which case it&apos;s

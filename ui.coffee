@@ -1,5 +1,5 @@
 assert = require 'assert'
-jquery = require 'jquery'
+$ = require 'jquery'
 questions = require './questions.coffee'
 games = require './games.coffee'
 

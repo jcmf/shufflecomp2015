@@ -166,7 +166,7 @@ module.exports =
       lyrics: 'http://lyricstranslate.com/en/fuego-fire.html-1'
     ]
   dreamland:
-    name: 'Running Down a Dreamland by Wes Eas'
+    name: 'Running Down a Dreamland'
     author: 'Wes Eas'
     play: 'http://www.nigeljayne.ca/scd2downloads/dreamland_shuffle_final.html'
     songs: [
