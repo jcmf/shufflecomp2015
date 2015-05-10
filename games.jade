@@ -18,13 +18,17 @@ each game in games
     .author= game.author
     .links
       if game.play
-        a.play(href=game.play, target='_blank') play
+        .link.play
+          a(href=game.play, target='_blank') play
       if game.download
-        a.download(href=game.download) download
+        .link.download
+          a(href=game.download) download
       if game.hints
-        a.hints(href=game.hints, target='_blank') hints
+        .link.hints
+          a(href=game.hints, target='_blank') hints
       if game.walkthrough
-        a.walkthrough(href=game.walkthrough target='_blank') walkthrough
+        .link.walkthrough
+          a(href=game.walkthrough target='_blank') walkthrough
     .songs
       each song in game.songs
         .song
@@ -34,5 +38,7 @@ each game in games
               span.disclosure(title='Full disclosure: I suggested this song.')
                 ='*'
           .author= song.author
-          a.play(href=song.play, target='_blank') play
+          .links
+            .link.play
+              a(href=song.play, target='_blank') play
 

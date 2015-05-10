@@ -2,6 +2,7 @@ module.exports =
   lake:
     name: 'By the Lake'
     author: 'Eldridge Murray'
+    parser: true
     download: 'http://www.nigeljayne.ca/scd2downloads/By%20the%20lake.ulx'
     play: 'http://iplayif.com/?story=http%3A%2F%2Fwww.nigeljayne.ca/scd2downloads/By%20the%20lake.ulx'
     songs: [
@@ -12,6 +13,7 @@ module.exports =
   comrade:
     name: 'Comrade'
     author: 'Urist Uristson'
+    parser: true
     download: 'http://www.nigeljayne.ca/scd2downloads/Comrade.gblorb'
     play: 'http://iplayif.com/?story=http%3A%2F%2Fwww.nigeljayne.ca/scd2downloads/Comrade.gblorb'
     walkthrough: 'http://www.nigeljayne.ca/scd2downloads/comrade%20walkthru.txt'
@@ -35,6 +37,7 @@ module.exports =
   everything:
     name: 'Everything We Do Is Games'
     author: 'Doug Orleans'
+    parser: true
     download: 'http://www.nigeljayne.ca/scd2downloads/Everything%20We%20Do%20Is%20Games.zblorb'
     play: 'http://steak.place.org/games/everything-we-do-is-games/'
     songs: [
@@ -46,6 +49,7 @@ module.exports =
   east:
     name: 'Heading East'
     author: 'Alex Davies'
+    parser: true
     download: 'http://www.nigeljayne.ca/scd2downloads/heading_east.z5'
     play: 'http://iplayif.com/?story=http%3A%2F%2Fwww.nigeljayne.ca/scd2downloads/heading_east.z5'
     hints: 'http://www.nigeljayne.ca/scd2downloads/he-hints.txt'
@@ -59,6 +63,7 @@ module.exports =
   molly:
     name: 'Molly and the Butter Thieves'
     author: 'Cosmic Hamster'
+    parser: true
     download: 'http://www.nigeljayne.ca/scd2downloads/Molly%20and%20the%20Butter%20Thieves.gblorb'
     play: 'http://www.nigeljayne.ca/scd2downloads/mbtplay.html'
     songs: [
@@ -85,6 +90,7 @@ module.exports =
   songbird:
     name: 'The Songbird, the Woman and the Silver Casket'
     author: 'Taryn Quinn'
+    parser: true
     download: 'http://www.nigeljayne.ca/scd2downloads/songbird.a3c'
     songs: [
       name: 'Real Emotional Girl'
@@ -103,6 +109,7 @@ module.exports =
   starry:
     name: 'Starry Seeksorrow'
     author: 'Ayla Rose'
+    parser: true
     download: 'http://www.nigeljayne.ca/scd2downloads/Starry%20Seeksorrow.zblorb'
     play: 'http://iplayif.com/?story=http%3A%2F%2Fwww.nigeljayne.ca/scd2downloads/Starry%20Seeksorrow.zblorb'
     hints: 'http://www.nigeljayne.ca/scd2downloads/seeksorrow%20hints.txt'
@@ -114,6 +121,7 @@ module.exports =
   water:
     name: 'When the Land Goes Under the Water'
     author: 'Nikephoros De Kloet'
+    parser: true
     download: 'http://www.nigeljayne.ca/scd2downloads/When%20the%20Land%20Goes%20Under%20the%20Wa.gblorb'
     play: 'http://www.nigeljayne.ca/scd2downloads/wtlplay.html'
     songs: [

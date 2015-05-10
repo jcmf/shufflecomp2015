@@ -64,7 +64,7 @@ showGames = (letters) ->
     game = games[k]
     assert game, k
     myGames.push game
-  template = require './game.jade'
+  template = require './games.jade'
   $games.append template games: myGames
   $('#games').show()
 
