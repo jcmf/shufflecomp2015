@@ -41,6 +41,7 @@ module.exports =
       name: '''4'33"'''
       author: 'John Cage (composer), Lawrence Foster (conductor), and the BBC Symphony Orchestra'
       play: 'https://www.youtube.com/watch?v=zY7UK-6aaNA'
+      disclosure: true
     ]
   east:
     name: 'Heading East'
@@ -49,6 +50,7 @@ module.exports =
     play: 'http://iplayif.com/?story=http%3A%2F%2Fwww.nigeljayne.ca/scd2downloads/heading_east.z5'
     hints: 'http://www.nigeljayne.ca/scd2downloads/he-hints.txt'
     walkthrough: 'http://www.nigeljayne.ca/scd2downloads/he-walkthrough.txt'
+    disclosure: true
     songs: [
       name: 'Vacant Night Sky'
       author: 'Mecca Normal'
@@ -96,6 +98,7 @@ module.exports =
       name: 'Rosie'
       author: "The Prisoners at the Mississippi State Penitentiary's Parchman Farm work camp; recorded by Alan Lomax"
       play: 'https://www.youtube.com/watch?v=9ch5IWTavUc'
+      disclosure: true
     ]
   starry:
     name: 'Starry Seeksorrow'
@@ -122,6 +125,7 @@ module.exports =
     name: 'Ansible'
     author: 'Jacques Frechet'
     play: 'http://toastball.net/games/ansible/'
+    disclosure: true
     songs: [
       name: "Save the World / Don't You Worry Child"
       author: 'Pentatonix'
@@ -145,6 +149,7 @@ module.exports =
     name: 'The Mayor and the Machine'
     author: 'J. Marie'
     play: 'http://eristhenia.net/twine/machine.html'
+    disclosure: true
     songs: [
       name: 'This Is Not A Game'
       author: 'Skunk Anansie'
@@ -176,6 +181,7 @@ module.exports =
       name: 'Super Mario Bros OST'
       author: 'Koji Kondo'
       play: 'https://www.youtube.com/watch?v=uhscMsBhNhw'
+      disclosure: true
     ,
       name: '1983...(A Merman I Should Turn To Be) / Moon, Turn the Tides...Gently Gently Away'
       author: 'The Jimi Hendrix Experience'
@@ -232,6 +238,7 @@ module.exports =
       name: 'Hide and Seek'
       author: 'Imogen Heap'
       play: 'https://www.youtube.com/watch?v=McDgDlnDX0Y'
+      disclosure: true
     ,
       name: 'Stone on the Water'
       author: 'Badly Drawn Boy'
