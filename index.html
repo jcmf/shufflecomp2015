@@ -371,19 +371,19 @@ buf.push("<span title=\"Full disclosure: I suggested several of the songs that i
 buf.push("</div><div class=\"author\">" + (jade.escape(null == (jade_interp = game.author) ? "" : jade_interp)) + "</div><div class=\"links\">");
 if ( game.play)
 {
-buf.push("<a" + (jade.attr("href", game.play, true, false)) + " target=\"_blank\" class=\"link play\">play</a>");
+buf.push("<span class=\"link play\"><a" + (jade.attr("href", game.play, true, false)) + " target=\"_blank\">play</a></span>");
 }
 if ( game.download)
 {
-buf.push("<a" + (jade.attr("href", game.download, true, false)) + " class=\"link download\">download</a>");
+buf.push("<span class=\"link download\"><a" + (jade.attr("href", game.download, true, false)) + ">download</a></span>");
 }
 if ( game.hints)
 {
-buf.push("<a" + (jade.attr("href", game.hints, true, false)) + " target=\"_blank\" class=\"link hints\">hints</a>");
+buf.push("<span class=\"link hints\"><a" + (jade.attr("href", game.hints, true, false)) + " target=\"_blank\">hints</a></span>");
 }
 if ( game.walkthrough)
 {
-buf.push("<a" + (jade.attr("href", game.walkthrough, true, false)) + " target=\"_blank\" class=\"link walkthrough\">walkthrough</a>");
+buf.push("<span class=\"link walkthrough\"><a" + (jade.attr("href", game.walkthrough, true, false)) + " target=\"_blank\">walkthrough</a></span>");
 }
 buf.push("</div><div class=\"songs\">");
 // iterate game.songs
@@ -399,7 +399,7 @@ if ( song.disclosure)
 {
 buf.push("<span title=\"Full disclosure: I suggested this song.\" class=\"disclosure\">*</span>");
 }
-buf.push("</div><div class=\"author\">" + (jade.escape(null == (jade_interp = song.author) ? "" : jade_interp)) + "</div><div class=\"links\"><a" + (jade.attr("href", song.play, true, false)) + " target=\"_blank\" class=\"link play\">play</a></div></div>");
+buf.push("</div><div class=\"author\">" + (jade.escape(null == (jade_interp = song.author) ? "" : jade_interp)) + "</div><div class=\"links\"><span class=\"link play\"><a" + (jade.attr("href", song.play, true, false)) + " target=\"_blank\">play</a></span></div></div>");
     }
 
   } else {
@@ -412,7 +412,7 @@ if ( song.disclosure)
 {
 buf.push("<span title=\"Full disclosure: I suggested this song.\" class=\"disclosure\">*</span>");
 }
-buf.push("</div><div class=\"author\">" + (jade.escape(null == (jade_interp = song.author) ? "" : jade_interp)) + "</div><div class=\"links\"><a" + (jade.attr("href", song.play, true, false)) + " target=\"_blank\" class=\"link play\">play</a></div></div>");
+buf.push("</div><div class=\"author\">" + (jade.escape(null == (jade_interp = song.author) ? "" : jade_interp)) + "</div><div class=\"links\"><span class=\"link play\"><a" + (jade.attr("href", song.play, true, false)) + " target=\"_blank\">play</a></span></div></div>");
     }
 
   }
@@ -455,19 +455,19 @@ buf.push("<span title=\"Full disclosure: I suggested several of the songs that i
 buf.push("</div><div class=\"author\">" + (jade.escape(null == (jade_interp = game.author) ? "" : jade_interp)) + "</div><div class=\"links\">");
 if ( game.play)
 {
-buf.push("<a" + (jade.attr("href", game.play, true, false)) + " target=\"_blank\" class=\"link play\">play</a>");
+buf.push("<span class=\"link play\"><a" + (jade.attr("href", game.play, true, false)) + " target=\"_blank\">play</a></span>");
 }
 if ( game.download)
 {
-buf.push("<a" + (jade.attr("href", game.download, true, false)) + " class=\"link download\">download</a>");
+buf.push("<span class=\"link download\"><a" + (jade.attr("href", game.download, true, false)) + ">download</a></span>");
 }
 if ( game.hints)
 {
-buf.push("<a" + (jade.attr("href", game.hints, true, false)) + " target=\"_blank\" class=\"link hints\">hints</a>");
+buf.push("<span class=\"link hints\"><a" + (jade.attr("href", game.hints, true, false)) + " target=\"_blank\">hints</a></span>");
 }
 if ( game.walkthrough)
 {
-buf.push("<a" + (jade.attr("href", game.walkthrough, true, false)) + " target=\"_blank\" class=\"link walkthrough\">walkthrough</a>");
+buf.push("<span class=\"link walkthrough\"><a" + (jade.attr("href", game.walkthrough, true, false)) + " target=\"_blank\">walkthrough</a></span>");
 }
 buf.push("</div><div class=\"songs\">");
 // iterate game.songs
@@ -483,7 +483,7 @@ if ( song.disclosure)
 {
 buf.push("<span title=\"Full disclosure: I suggested this song.\" class=\"disclosure\">*</span>");
 }
-buf.push("</div><div class=\"author\">" + (jade.escape(null == (jade_interp = song.author) ? "" : jade_interp)) + "</div><div class=\"links\"><a" + (jade.attr("href", song.play, true, false)) + " target=\"_blank\" class=\"link play\">play</a></div></div>");
+buf.push("</div><div class=\"author\">" + (jade.escape(null == (jade_interp = song.author) ? "" : jade_interp)) + "</div><div class=\"links\"><span class=\"link play\"><a" + (jade.attr("href", song.play, true, false)) + " target=\"_blank\">play</a></span></div></div>");
     }
 
   } else {
@@ -496,7 +496,7 @@ if ( song.disclosure)
 {
 buf.push("<span title=\"Full disclosure: I suggested this song.\" class=\"disclosure\">*</span>");
 }
-buf.push("</div><div class=\"author\">" + (jade.escape(null == (jade_interp = song.author) ? "" : jade_interp)) + "</div><div class=\"links\"><a" + (jade.attr("href", song.play, true, false)) + " target=\"_blank\" class=\"link play\">play</a></div></div>");
+buf.push("</div><div class=\"author\">" + (jade.escape(null == (jade_interp = song.author) ? "" : jade_interp)) + "</div><div class=\"links\"><span class=\"link play\"><a" + (jade.attr("href", song.play, true, false)) + " target=\"_blank\">play</a></span></div></div>");
     }
 
   }
