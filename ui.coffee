@@ -16,10 +16,33 @@ showPane = (name) ->
   $target.show()
   if not target.length then notFound "no such pane '#{name}'"
 
-showQuestion = (numbers) ->
+newScores = ->
   scores = {}
   for k in allGames
     scores[k] = 0
+  scores
+
+redirectToHash = (hash) ->
+  if not /^#/.test hash then hash = "##{hash}"
+  if window.history?.replaceState
+    window.history.replaceState '', '', hash
+  else
+    if location.hash != hash then history.back()
+    location.hash = hash
+  hashchange()
+
+redirectToGames = (scores) ->
+  myGames = allGames[..]
+  rand = {}
+  gameToLetter = {}
+  for k, i in allGames
+    rand[k] = Math.random()
+    gameToLetter[k] = String.fromCharCode i + 'a'.codePointAt(0)
+  myGames.sort (a, b) -> (scores[b] - scores[a]) or (rand[b] - rand[a])
+  redirectToHash "#games=#{(gameToLetter[k] for k in myGames).join ''}"
+
+showQuestion = (numbers) ->
+  scores = newScores()
   answered = 0
   for ch, iQ in numbers
     q = questions[iQ]
@@ -30,28 +53,19 @@ showQuestion = (numbers) ->
     if not a then return notFound "bad answer '#{ch}' pos=#{iQ} q='#{q.q}'"
     for k, v of a when k != 'a'
       scores[k] += v
-  if q = questions[answered]
-    $q = $ '#question-container'
-    $q.empty()
-    template = require './question.jade'
-    mkUrl = (suffix) -> "#!#{numbers}#{suffix}"
-    assert q.a.length < 10, q.q
-    $q.append template {
-      q
-      mkUrl: (i) -> mkUrl 1+i
-      skipUrl: mkUrl '0'
-      skipAllUrl: mkUrl ('0' for i in [answered...questions.length]).join ''
-    }
-    $('#question').show()
-  else
-    myGames = allGames[..]
-    rand = {}
-    gameToLetter = {}
-    for k, i in allGames
-      rand[k] = Math.random()
-      gameToLetter[k] = String.fromCharCode i + 'a'.codePointAt(0)
-    myGames.sort (a, b) -> (scores[b] - scores[a]) or (rand[b] - rand[a])
-    window.location = "#/games=#{(gameToLetter[k] for k in myGames).join ''}"
+  if not q = questions[answered] then return redirectToGames scores
+  $q = $ '#question-container'
+  $q.empty()
+  template = require './question.jade'
+  mkUrl = (suffix) -> "#!#{numbers}#{suffix}"
+  assert q.a.length < 10, q.q
+  $q.append template {
+    q
+    mkUrl: (i) -> mkUrl 1+i
+    skipUrl: mkUrl '0'
+    skipAllUrl: mkUrl ('0' for i in [answered...questions.length]).join ''
+  }
+  $('#question').show()
 
 showGames = (letters) ->
   $games = $('#games-container')
@@ -78,7 +92,8 @@ hashchange = ->
   $('#loading').show()
   $('.pane').hide()
   if not hash then $('#home').show()
-  else if m = /^\/games=([a-z]*)$/.exec hash then showGames m[1]
+  else if hash is 'random' then return redirectToGames newScores()
+  else if m = /^games=([a-z]*)$/.exec hash then showGames m[1]
   else if m = /^!([0-9]*)$/.exec hash then showQuestion m[1]
   else if m = /^\/(\w+)$/.exec hash then showPane m[1]
   else notFound "'#{hash}'"
