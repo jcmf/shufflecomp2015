@@ -102,9 +102,9 @@ hashchange = ->
   return
 
 $ ->
-  $(window).on 'hashchange', hashchange
-  hashchange()
-
-  $('a[href="#back"]').click ->
+  $('p a[href^=http]').attr 'target', '_blank'
+  $('body').on 'click', 'a[href="#back"]', ->
     window.history.back()
     false
+  $(window).on 'hashchange', hashchange
+  hashchange()

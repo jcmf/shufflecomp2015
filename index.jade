@@ -20,6 +20,8 @@ html(lang='en')
             text-decoration underline
           &:active
             color red
+        p
+          max-width 40em
 
         #loading, .pane
           padding 0 1em
@@ -60,11 +62,44 @@ html(lang='en')
       :markdown
         # Jacques's Guide to ShuffleComp 2015
 
-        Hi, my name is Jacques Frechet and this right here is a
-        placeholder for the front page for this quiz thing.
+        version #{package.version} &mdash; [quiz][] &mdash; [random][]
 
-        [start](#!)
-        [random](#random)
+        Hi there!
+
+        So, I recently entered [a game][] in [ShuffleComp 2015][],
+        which is sort of a [game jam][] type contest thing for
+        [interactive fiction][] inspired by songs contributed by
+        other entrants, and now I'm playing all the games, and wow,
+        they're really good.  You should definitely try [all
+        seventeen][games] of them!
+
+        If that sounds daunting, fear not: I have made this here
+        guide thing that could be just the thing to help you get
+        started.
+
+        Simply [answer a few questions][quiz] to get slightly
+        randomized suggestions about which games you might like.
+        You can bail out at any time and see a list based on the
+        questions you've answered so far.
+
+        Note that your answers affect the results in ways that
+        depend on my opinions, and I am totally biased, so watch
+        out!  You may instead prefer to request a [completely
+        unbiased][random] but somewhat less personalized list.
+
+        The choice is yours!
+
+        Love,
+
+        Jacques
+
+        [quiz]: #!
+        [random]: #random
+        [a game]: http://toastball.net/games/ansible/
+        [ShuffleComp 2015]: http://ifwiki.org/index.php/ShuffleComp:_Disc_2
+        [game jam]: http://en.wikipedia.org/wiki/Game_jam
+        [interactive fiction]: http://en.wikipedia.org/wiki/Interactive_fiction
+        [games]: http://www.nigeljayne.ca/shufflecomp2015games.html
 
     #loading(style='display: none;')
       :markdown
@@ -96,4 +131,8 @@ html(lang='en')
       #question-container
 
     #games.pane(style='display: none;')
+      :markdown
+        Here is some text that goes above the list.
       #games-container
+      :markdown
+        And here is some text at the bottom.
