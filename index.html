@@ -345,11 +345,11 @@ var jade_interp;
 buf.push("<div class=\"game\"><a" + (jade.attr("href", game.play, true, false)) + " target=\"_blank\" class=\"play\"><span class=\"name\">" + (jade.escape(null == (jade_interp = game.name) ? "" : jade_interp)) + "</span></a> by <span class=\"author\">" + (jade.escape(null == (jade_interp = game.author) ? "" : jade_interp)) + "</span>");
 if ( game.author == 'Jacques Frechet')
 {
-buf.push("<span title=\"Full disclosure: I wrote this game.\" class=\"disclosure\">*</span>");
+buf.push("<span title=\"I wrote this game.\" class=\"disclosure\">*</span>");
 }
 else if ( game.disclosure)
 {
-buf.push("<span title=\"Full disclosure: I helped test this game.\" class=\"disclosure\">*</span>");
+buf.push("<span title=\"I helped test this game.\" class=\"disclosure\">*</span>");
 }
 buf.push("<span class=\"links\">");
 var sep = ' \u2014\u00a0'
@@ -378,7 +378,7 @@ buf.push(jade.escape(null == (jade_interp = i+1) ? "" : jade_interp));
 buf.push("</a>");
 if ( song.disclosure)
 {
-buf.push("<span title=\"Full disclosure: I suggested this song.\" class=\"disclosure\">*</span>");
+buf.push("<span title=\"I suggested this song.\" class=\"disclosure\">*</span>");
 }
 if ( i < game.songs.length-1)
 {
@@ -403,7 +403,7 @@ buf.push(jade.escape(null == (jade_interp = i+1) ? "" : jade_interp));
 buf.push("</a>");
 if ( song.disclosure)
 {
-buf.push("<span title=\"Full disclosure: I suggested this song.\" class=\"disclosure\">*</span>");
+buf.push("<span title=\"I suggested this song.\" class=\"disclosure\">*</span>");
 }
 if ( i < game.songs.length-1)
 {
@@ -442,11 +442,11 @@ buf.push("</span></div>");
 buf.push("<div class=\"game\"><a" + (jade.attr("href", game.play, true, false)) + " target=\"_blank\" class=\"play\"><span class=\"name\">" + (jade.escape(null == (jade_interp = game.name) ? "" : jade_interp)) + "</span></a> by <span class=\"author\">" + (jade.escape(null == (jade_interp = game.author) ? "" : jade_interp)) + "</span>");
 if ( game.author == 'Jacques Frechet')
 {
-buf.push("<span title=\"Full disclosure: I wrote this game.\" class=\"disclosure\">*</span>");
+buf.push("<span title=\"I wrote this game.\" class=\"disclosure\">*</span>");
 }
 else if ( game.disclosure)
 {
-buf.push("<span title=\"Full disclosure: I helped test this game.\" class=\"disclosure\">*</span>");
+buf.push("<span title=\"I helped test this game.\" class=\"disclosure\">*</span>");
 }
 buf.push("<span class=\"links\">");
 var sep = ' \u2014\u00a0'
@@ -475,7 +475,7 @@ buf.push(jade.escape(null == (jade_interp = i+1) ? "" : jade_interp));
 buf.push("</a>");
 if ( song.disclosure)
 {
-buf.push("<span title=\"Full disclosure: I suggested this song.\" class=\"disclosure\">*</span>");
+buf.push("<span title=\"I suggested this song.\" class=\"disclosure\">*</span>");
 }
 if ( i < game.songs.length-1)
 {
@@ -500,7 +500,7 @@ buf.push(jade.escape(null == (jade_interp = i+1) ? "" : jade_interp));
 buf.push("</a>");
 if ( song.disclosure)
 {
-buf.push("<span title=\"Full disclosure: I suggested this song.\" class=\"disclosure\">*</span>");
+buf.push("<span title=\"I suggested this song.\" class=\"disclosure\">*</span>");
 }
 if ( i < game.songs.length-1)
 {
@@ -11789,9 +11789,17 @@ hashchange = function() {
 };
 
 $(function() {
+  var shown;
   $('p a[href^=http]').attr('target', '_blank');
   $('body').on('click', 'a[href="#back"]', function() {
     window.history.back();
+    return false;
+  });
+  shown = true;
+  $('body').on('click', '.disclosure, .disclosure-control', function() {
+    shown = !shown;
+    $('.disclosure, .disclosure-shown').toggle(shown);
+    $('.disclosure-hidden').toggle(!shown);
     return false;
   });
   $(window).on('hashchange', hashchange);
@@ -11821,6 +11829,17 @@ body a[href]:active {
 p {
   max-width: 40em;
 }
+p.header {
+  max-width: none;
+}
+.disclosure,
+.disclosure-control {
+  cursor: pointer;
+}
+.disclosure:hover,
+.disclosure-control:hover {
+  text-decoration: line-through;
+}
 #loading,
 .pane {
   padding: 0 1em;
@@ -11832,14 +11851,14 @@ p {
 .question,
 .answer,
 .skips a,
-.game {
+#games p {
   padding: 0 1em;
 }
 .question,
 .answers,
 .skips,
-.game {
-  margin: 0.5em 0;
+p {
+  margin: 1em 0;
 }
 #question-container a {
   display: block;
@@ -11866,6 +11885,7 @@ a.answer:hover:before {
   content: '\2611  ';
 }
 .game {
+  padding: 0.5em 1em;
   padding-left: 3em;
   text-indent: -2em;
 }
@@ -11898,6 +11918,8 @@ unbiased</a> but somewhat less personalized list.</p>
 <p>The choice is yours!</p>
 <p>Love,</p>
 <p>Jacques</p>
+<p>P.S. If you have questions or suggestions or comments or complaints
+please feel free to email me at <a href="mailto:zaphod@toastball.net">zaphod@toastball.net</a>.</p>
 </div><div id="loading" style="display: none;"><p>loading omg plz wait plz thx</p>
 </div><div id="404-pane" style="display: none;" class="pane"><h2 id="page-not-found-omg-what-do-we-do-panic-probably">page not found, omg, what do we do, panic probably</h2>
 <p>This is definitely a bug!  Unless you were intentionally
@@ -11915,6 +11937,14 @@ kind of poor.  Probably you should assume it&apos;s a bug just
 to be safe.  Because assuming that things are bugs will
 increase your safety somehow I guess.  Safety is important!
 Be safe!</p>
-</div><div id="question" style="display: none;" class="pane"><div id="question-container"></div></div><div id="games" style="display: none;" class="pane"><p>Here is some text that goes above the list.</p>
-<div id="games-container"></div><p>And here is some text at the bottom.</p>
+</div><div id="question" style="display: none;" class="pane"><div id="question-container"></div></div><div id="games" style="display: none;" class="pane"><p class="header">Here&apos;s your list!  Click a name to play in a new tab.
+Bookmark this page to save this ordering.
+</p><div id="games-container"></div><p>In the interest of full disclosure, the <span class="disclosure-control">*</span> indicates games I
+wrote or helped test or songs I suggested, all of which
+are things that might bias me, so I want to make sure
+that&apos;s all out in the open.
+<span class="disclosure-shown">(If the <span class="disclosure-control">*</span>s bother you, click
+one to hide them.)</span><span class="disclosure-hidden" style="display: none;">(Click one of the <span class="disclosure-control">*</span>s to show them
+again.)</span></p>
+<p><a href="#">home</a> &#x2014; <a href="#!">quiz</a> &#x2014; <a href="#random">random</a></p>
 </div></body></html>

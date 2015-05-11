@@ -5,9 +5,9 @@ each game in games
     =' by '
     span.author=game.author
     if game.author == 'Jacques Frechet'
-      span.disclosure(title='Full disclosure: I wrote this game.')='*'
+      span.disclosure(title='I wrote this game.')='*'
     else if game.disclosure
-      span.disclosure(title='Full disclosure: I helped test this game.')='*'
+      span.disclosure(title='I helped test this game.')='*'
     span.links
       - var sep = ' \u2014\u00a0'
       =sep
@@ -21,7 +21,7 @@ each game in games
             else
               =i+1
           if song.disclosure
-            span.disclosure(title='Full disclosure: I suggested this song.')
+            span.disclosure(title='I suggested this song.')
               ='*'
           if i < game.songs.length-1
             ='\u00a0'

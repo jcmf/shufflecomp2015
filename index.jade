@@ -22,15 +22,21 @@ html(lang='en')
             color red
         p
           max-width 40em
+        p.header
+          max-width none
+        .disclosure, .disclosure-control
+          cursor pointer
+          &:hover
+            text-decoration line-through
 
         #loading, .pane
           padding 0 1em
         #question, #games
           padding 0
-        .question, .answer, .skips a, .game
+        .question, .answer, .skips a, #games p
           padding 0 1em
-        .question, .answers, .skips, .game
-          margin 0.5em 0
+        .question, .answers, .skips, p
+          margin 1em 0
         #question-container a
           display block
           color inherit
@@ -50,6 +56,7 @@ html(lang='en')
           content '\2611  '
 
         .game
+          padding 0.5em 1em
           padding-left 3em
           text-indent -2em
           &:hover
@@ -93,6 +100,9 @@ html(lang='en')
 
         Jacques
 
+        P.S. If you have questions or suggestions or comments or complaints
+        please feel free to email me at <zaphod@toastball.net>.
+
         [quiz]: #!
         [random]: #random
         [a game]: http://toastball.net/games/ansible/
@@ -131,8 +141,23 @@ html(lang='en')
       #question-container
 
     #games.pane(style='display: none;')
-      :markdown
-        Here is some text that goes above the list.
+      p.header.
+        Here's your list!  Click a name to play in a new tab.
+        Bookmark this page to save this ordering.
+
       #games-container
+
       :markdown
-        And here is some text at the bottom.
+        In the interest of full disclosure, the <span
+        class="disclosure-control">\*</span> indicates games I
+        wrote or helped test or songs I suggested, all of which
+        are things that might bias me, so I want to make sure
+        that's all out in the open.
+        <span class='disclosure-shown'>(If the <span
+        class="disclosure-control">\*</span>s bother you, click
+        one to hide them.)</span><span class='disclosure-hidden'
+        style='display: none;'>(Click one of the <span
+        class="disclosure-control">\*</span>s to show them
+        again.)</span>
+
+        [home](#) &mdash; [quiz](#!) &mdash; [random](#random)
