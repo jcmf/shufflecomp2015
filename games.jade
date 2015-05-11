@@ -1,43 +1,47 @@
 each game in games
   .game
-    .name
-      =game.name
-      if game.author == 'Jacques Frechet'
-        span.disclosure(title='Full disclosure: I wrote this game.')='*'
-      else if game.disclosure
-        span.disclosure(title='Full disclosure: I helped test this game.')='*'
-      else if game.songs.length == 1 && game.songs[0].disclosure
-        span.disclosure(title='Full disclosure: I suggested the song that inspired this game.')='*'
-      else
-        - var count = 0;
-        - for (var i = 0; i < game.songs.length; ++i) { if (game.songs[i].disclosure) ++count; }
-        if count == 1
-          span.disclosure(title='Full disclosure: I suggested one of the songs that inspired this game.')='*'
-        else if count > 1
-          span.disclosure(title='Full disclosure: I suggested several of the songs that inspired this game.')='*'
-    .author= game.author
+    a.play(href=game.play, target='_blank')
+      span.name
+        =game.name
+        if game.author == 'Jacques Frechet'
+          span.disclosure(title='Full disclosure: I wrote this game.')='*'
+        else if game.disclosure
+          span.disclosure(title='Full disclosure: I helped test this game.')='*'
+        else if game.songs.length == 1 && game.songs[0].disclosure
+          span.disclosure(title='Full disclosure: I suggested the song that inspired this game.')='*'
+        else
+          - var count = 0;
+          - for (var i = 0; i < game.songs.length; ++i) { if (game.songs[i].disclosure) ++count; }
+          if count == 1
+            span.disclosure(title='Full disclosure: I suggested one of the songs that inspired this game.')='*'
+          else if count > 1
+            span.disclosure(title='Full disclosure: I suggested several of the songs that inspired this game.')='*'
+      =' by '
+      span.author= game.author
     .links
-      if game.play
-        span.link.play
-          a(href=game.play, target='_blank') play
+      span.link.songs
+        if game.songs.length > 1
+          ='songs: '
+        each song, i in game.songs
+          a.song(title=song.name+' by '+song.author, href=song.play, target='_blank')
+            if game.songs.length == 1
+              ='song'
+            else
+              =i+1
+          if song.disclosure
+            span.disclosure(title='Full disclosure: I suggested this song.')
+              ='*'
+          if i < game.songs.length-1
+            =' '
       if game.download
         span.link.download
           a(href=game.download) download
+      if game.parser
+        span.link.interpreter
+          a(href=/\.a3c$/.test(game.download)?'http://www.alanif.se/download-alan-v3/interpreters':'http://inform7.com/if/interpreters/') interpreter
       if game.hints
         span.link.hints
           a(href=game.hints, target='_blank') hints
       if game.walkthrough
         span.link.walkthrough
           a(href=game.walkthrough target='_blank') walkthrough
-    .songs
-      each song in game.songs
-        .song
-          .name
-            =song.name
-            if song.disclosure
-              span.disclosure(title='Full disclosure: I suggested this song.')
-                ='*'
-          .author= song.author
-          .links
-            span.link.play
-              a(href=song.play, target='_blank') play

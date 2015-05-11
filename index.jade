@@ -12,6 +12,12 @@ html(lang='en')
           font-family sans-serif
           line-height 1.5
           background-color #f8f8f8
+        body a
+          color blue
+          text-decoration none
+          &:hover
+            text-decoration underline
+
         #loading, .pane
           padding 0 1em
         #question
@@ -26,6 +32,7 @@ html(lang='en')
           text-decoration none
           &:hover
             background-color white
+            text-decoration none
         .link-text
           color blue
         a:hover .link-text
@@ -36,6 +43,7 @@ html(lang='en')
           content '\2610  '
         a.answer:hover:before
           content '\2611  '
+
         .link
           &:before
             content ' - '
