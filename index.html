@@ -11757,6 +11757,7 @@ $(function() {
   margin: 1em 0;
   font-family: sans-serif;
   line-height: 1.5;
+  background-color: #f8f8f8;
 }
 #loading,
 .pane {
@@ -11781,22 +11782,22 @@ $(function() {
   text-decoration: none;
 }
 #question-container a:hover {
-  background-color: #eee;
+  background-color: #fff;
 }
 .link-text {
-  color: #00e;
+  color: #00f;
 }
 a:hover .link-text {
   text-decoration: underline;
 }
 a:active .link-text {
-  color: #e00;
-}
-a:visited .link-text {
-  color: #551a8b;
+  color: #f00;
 }
 a.answer:before {
   content: '\2610  ';
+}
+a.answer:hover:before {
+  content: '\2611  ';
 }
 .link:before {
   content: ' - ';
