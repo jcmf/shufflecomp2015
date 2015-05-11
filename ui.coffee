@@ -40,7 +40,7 @@ showQuestion = (numbers) ->
       q
       mkUrl: (i) -> mkUrl 1+i
       skipUrl: mkUrl '0'
-      skipAllUrl: mkUrl ('0' for i in [answered...questions.length]).join '' 
+      skipAllUrl: mkUrl ('0' for i in [answered...questions.length]).join ''
     }
     $('#question').show()
   else
@@ -93,3 +93,7 @@ hashchange = ->
 $ ->
   $(window).on 'hashchange', hashchange
   hashchange()
+
+  $('a[href="#back"]').click ->
+    window.history.back()
+    false

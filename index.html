@@ -11038,7 +11038,7 @@ buf.push("<a" + (jade.attr("href", mkUrl(i), true, false)) + " class=\"answer\">
   }
 }).call(this);
 
-buf.push("</div><div class=\"skips\"><a" + (jade.attr("href", skipUrl, true, false)) + " class=\"skip\"><span class=\"link-text\">skip this question</span></a><a" + (jade.attr("href", skipAllUrl, true, false)) + " class=\"skip-all\"><span class=\"link-text\">skip all remaining questions</span></a></div>");}.call(this,"mkUrl" in locals_for_with?locals_for_with.mkUrl:typeof mkUrl!=="undefined"?mkUrl:undefined,"q" in locals_for_with?locals_for_with.q:typeof q!=="undefined"?q:undefined,"skipAllUrl" in locals_for_with?locals_for_with.skipAllUrl:typeof skipAllUrl!=="undefined"?skipAllUrl:undefined,"skipUrl" in locals_for_with?locals_for_with.skipUrl:typeof skipUrl!=="undefined"?skipUrl:undefined,"undefined" in locals_for_with?locals_for_with.undefined:typeof undefined!=="undefined"?undefined:undefined));;return buf.join("");
+buf.push("</div><div class=\"skips\"><a href=\"#back\" class=\"back\"><span class=\"link-text\">go back</span></a><a" + (jade.attr("href", skipUrl, true, false)) + " class=\"skip\"><span class=\"link-text\">skip this question</span></a><a" + (jade.attr("href", skipAllUrl, true, false)) + " class=\"skip-all\"><span class=\"link-text\">skip all remaining questions</span></a></div>");}.call(this,"mkUrl" in locals_for_with?locals_for_with.mkUrl:typeof mkUrl!=="undefined"?mkUrl:undefined,"q" in locals_for_with?locals_for_with.q:typeof q!=="undefined"?q:undefined,"skipAllUrl" in locals_for_with?locals_for_with.skipAllUrl:typeof skipAllUrl!=="undefined"?skipAllUrl:undefined,"skipUrl" in locals_for_with?locals_for_with.skipUrl:typeof skipUrl!=="undefined"?skipUrl:undefined,"undefined" in locals_for_with?locals_for_with.undefined:typeof undefined!=="undefined"?undefined:undefined));;return buf.join("");
 };
 },{"jade/runtime":9}],12:[function(require,module,exports){
 module.exports = [
@@ -11742,13 +11742,18 @@ hashchange = function() {
 
 $(function() {
   $(window).on('hashchange', hashchange);
-  return hashchange();
+  hashchange();
+  return $('a[href="#back"]').click(function() {
+    window.history.back();
+    return false;
+  });
 });
 
 
 
 },{"./games.coffee":1,"./games.jade":2,"./question.jade":11,"./questions.coffee":12,"assert":3,"jquery":10}]},{},[13]);
 </script><style>body {
+  font-size: 24px;
   margin: 1em 0;
   font-family: sans-serif;
   line-height: 1.5;
