@@ -12,4 +12,4 @@ git commit -am "$version"
 git tag -am "$version" "$version"
 git push
 # npm publish
-ssh toastball.net 'cd www/toastball.net/shufflecomp2015 && git pull'
+ssh toastball.net 'cd www/toastball.net/games/shufflecomp2015 && git pull'
