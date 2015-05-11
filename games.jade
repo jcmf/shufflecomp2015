@@ -8,7 +8,9 @@ each game in games
       span.disclosure(title='Full disclosure: I wrote this game.')='*'
     else if game.disclosure
       span.disclosure(title='Full disclosure: I helped test this game.')='*'
-    .links
+    span.links
+      - var sep = ' \u2014\u00a0'
+      =sep
       span.link.songs
         if game.songs.length > 1
           ='songs: '
@@ -24,14 +26,18 @@ each game in games
           if i < game.songs.length-1
             =' '
       if game.download
+        =sep
         span.link.download
           a(href=game.download) download
       if game.parser
+        =sep
         span.link.interpreter
           a(href=/\.a3c$/.test(game.download)?'http://www.alanif.se/download-alan-v3/interpreters':'http://inform7.com/if/interpreters/') interpreter
       if game.hints
+        =sep
         span.link.hints
           a(href=game.hints, target='_blank') hints
       if game.walkthrough
+        =sep
         span.link.walkthrough
           a(href=game.walkthrough target='_blank') walkthrough

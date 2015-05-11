@@ -351,7 +351,9 @@ else if ( game.disclosure)
 {
 buf.push("<span title=\"Full disclosure: I helped test this game.\" class=\"disclosure\">*</span>");
 }
-buf.push("<div class=\"links\"><span class=\"link songs\">");
+buf.push("<span class=\"links\">");
+var sep = ' \u2014\u00a0'
+buf.push((jade.escape(null == (jade_interp = sep) ? "" : jade_interp)) + "<span class=\"link songs\">");
 if ( game.songs.length > 1)
 {
 buf.push("songs: ");
@@ -415,21 +417,21 @@ buf.push(" ");
 buf.push("</span>");
 if ( game.download)
 {
-buf.push("<span class=\"link download\"><a" + (jade.attr("href", game.download, true, false)) + ">download</a></span>");
+buf.push((jade.escape(null == (jade_interp = sep) ? "" : jade_interp)) + "<span class=\"link download\"><a" + (jade.attr("href", game.download, true, false)) + ">download</a></span>");
 }
 if ( game.parser)
 {
-buf.push("<span class=\"link interpreter\"><a" + (jade.attr("href", /\.a3c$/.test(game.download)?'http://www.alanif.se/download-alan-v3/interpreters':'http://inform7.com/if/interpreters/', true, false)) + ">interpreter</a></span>");
+buf.push((jade.escape(null == (jade_interp = sep) ? "" : jade_interp)) + "<span class=\"link interpreter\"><a" + (jade.attr("href", /\.a3c$/.test(game.download)?'http://www.alanif.se/download-alan-v3/interpreters':'http://inform7.com/if/interpreters/', true, false)) + ">interpreter</a></span>");
 }
 if ( game.hints)
 {
-buf.push("<span class=\"link hints\"><a" + (jade.attr("href", game.hints, true, false)) + " target=\"_blank\">hints</a></span>");
+buf.push((jade.escape(null == (jade_interp = sep) ? "" : jade_interp)) + "<span class=\"link hints\"><a" + (jade.attr("href", game.hints, true, false)) + " target=\"_blank\">hints</a></span>");
 }
 if ( game.walkthrough)
 {
-buf.push("<span class=\"link walkthrough\"><a" + (jade.attr("href", game.walkthrough, true, false)) + " target=\"_blank\">walkthrough</a></span>");
+buf.push((jade.escape(null == (jade_interp = sep) ? "" : jade_interp)) + "<span class=\"link walkthrough\"><a" + (jade.attr("href", game.walkthrough, true, false)) + " target=\"_blank\">walkthrough</a></span>");
 }
-buf.push("</div></div>");
+buf.push("</span></div>");
     }
 
   } else {
@@ -446,7 +448,9 @@ else if ( game.disclosure)
 {
 buf.push("<span title=\"Full disclosure: I helped test this game.\" class=\"disclosure\">*</span>");
 }
-buf.push("<div class=\"links\"><span class=\"link songs\">");
+buf.push("<span class=\"links\">");
+var sep = ' \u2014\u00a0'
+buf.push((jade.escape(null == (jade_interp = sep) ? "" : jade_interp)) + "<span class=\"link songs\">");
 if ( game.songs.length > 1)
 {
 buf.push("songs: ");
@@ -510,21 +514,21 @@ buf.push(" ");
 buf.push("</span>");
 if ( game.download)
 {
-buf.push("<span class=\"link download\"><a" + (jade.attr("href", game.download, true, false)) + ">download</a></span>");
+buf.push((jade.escape(null == (jade_interp = sep) ? "" : jade_interp)) + "<span class=\"link download\"><a" + (jade.attr("href", game.download, true, false)) + ">download</a></span>");
 }
 if ( game.parser)
 {
-buf.push("<span class=\"link interpreter\"><a" + (jade.attr("href", /\.a3c$/.test(game.download)?'http://www.alanif.se/download-alan-v3/interpreters':'http://inform7.com/if/interpreters/', true, false)) + ">interpreter</a></span>");
+buf.push((jade.escape(null == (jade_interp = sep) ? "" : jade_interp)) + "<span class=\"link interpreter\"><a" + (jade.attr("href", /\.a3c$/.test(game.download)?'http://www.alanif.se/download-alan-v3/interpreters':'http://inform7.com/if/interpreters/', true, false)) + ">interpreter</a></span>");
 }
 if ( game.hints)
 {
-buf.push("<span class=\"link hints\"><a" + (jade.attr("href", game.hints, true, false)) + " target=\"_blank\">hints</a></span>");
+buf.push((jade.escape(null == (jade_interp = sep) ? "" : jade_interp)) + "<span class=\"link hints\"><a" + (jade.attr("href", game.hints, true, false)) + " target=\"_blank\">hints</a></span>");
 }
 if ( game.walkthrough)
 {
-buf.push("<span class=\"link walkthrough\"><a" + (jade.attr("href", game.walkthrough, true, false)) + " target=\"_blank\">walkthrough</a></span>");
+buf.push((jade.escape(null == (jade_interp = sep) ? "" : jade_interp)) + "<span class=\"link walkthrough\"><a" + (jade.attr("href", game.walkthrough, true, false)) + " target=\"_blank\">walkthrough</a></span>");
 }
-buf.push("</div></div>");
+buf.push("</span></div>");
     }
 
   }
@@ -11834,12 +11838,6 @@ a.answer:before {
 }
 a.answer:hover:before {
   content: '\2611  ';
-}
-.link:before {
-  content: ' - ';
-}
-.link:first-child:before {
-  content: none;
 }
 .game:hover {
   background-color: #fff;
