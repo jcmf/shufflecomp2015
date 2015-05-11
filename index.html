@@ -382,7 +382,7 @@ buf.push("<span title=\"Full disclosure: I suggested this song.\" class=\"disclo
 }
 if ( i < game.songs.length-1)
 {
-buf.push(" ");
+buf.push(" ");
 }
     }
 
@@ -407,7 +407,7 @@ buf.push("<span title=\"Full disclosure: I suggested this song.\" class=\"disclo
 }
 if ( i < game.songs.length-1)
 {
-buf.push(" ");
+buf.push(" ");
 }
     }
 
@@ -479,7 +479,7 @@ buf.push("<span title=\"Full disclosure: I suggested this song.\" class=\"disclo
 }
 if ( i < game.songs.length-1)
 {
-buf.push(" ");
+buf.push(" ");
 }
     }
 
@@ -504,7 +504,7 @@ buf.push("<span title=\"Full disclosure: I suggested this song.\" class=\"disclo
 }
 if ( i < game.songs.length-1)
 {
-buf.push(" ");
+buf.push(" ");
 }
     }
 
@@ -11785,14 +11785,14 @@ $(function() {
   line-height: 1.5;
   background-color: #f8f8f8;
 }
-body a {
+body a[href] {
   color: #00f;
   text-decoration: none;
 }
-body a:hover {
+body a[href]:hover {
   text-decoration: underline;
 }
-body a:active {
+body a[href]:active {
   color: #f00;
 }
 #loading,
@@ -11839,8 +11839,15 @@ a.answer:before {
 a.answer:hover:before {
   content: '\2611  ';
 }
+.game {
+  padding-left: 3em;
+  text-indent: -2em;
+}
 .game:hover {
   background-color: #fff;
+}
+.game .name {
+  font-style: italic;
 }
 </style></head><body><div id="home" class="pane"><h1 id="jacques-s-guide-to-shufflecomp-2015">Jacques&apos;s Guide to ShuffleComp 2015</h1>
 <p>Hi, my name is Jacques Frechet and this right here is a

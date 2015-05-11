@@ -13,7 +13,7 @@ html(lang='en')
           line-height 1.5
           background-color #f8f8f8
 
-        body a
+        body a[href]
           color blue
           text-decoration none
           &:hover
@@ -47,8 +47,13 @@ html(lang='en')
         a.answer:hover:before
           content '\2611  '
 
-        .game:hover
-          background-color white
+        .game
+          padding-left 3em
+          text-indent -2em
+          &:hover
+            background-color white
+          & .name
+            font-style italic
 
   body
     #home.pane
