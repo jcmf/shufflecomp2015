@@ -342,7 +342,7 @@ var jade_interp;
     for (var $index = 0, $$l = $$obj.length; $index < $$l; $index++) {
       var game = $$obj[$index];
 
-buf.push("<div class=\"game\"><a" + (jade.attr("href", game.play, true, false)) + " target=\"_blank\" class=\"play\"><span class=\"name\">" + (jade.escape(null == (jade_interp = game.name) ? "" : jade_interp)));
+buf.push("<div class=\"game\"><a" + (jade.attr("href", game.play, true, false)) + " target=\"_blank\" class=\"play\"><span class=\"name\">" + (jade.escape(null == (jade_interp = game.name) ? "" : jade_interp)) + "</span></a> by <span class=\"author\">" + (jade.escape(null == (jade_interp = game.author) ? "" : jade_interp)) + "</span>");
 if ( game.author == 'Jacques Frechet')
 {
 buf.push("<span title=\"Full disclosure: I wrote this game.\" class=\"disclosure\">*</span>");
@@ -351,24 +351,7 @@ else if ( game.disclosure)
 {
 buf.push("<span title=\"Full disclosure: I helped test this game.\" class=\"disclosure\">*</span>");
 }
-else if ( game.songs.length == 1 && game.songs[0].disclosure)
-{
-buf.push("<span title=\"Full disclosure: I suggested the song that inspired this game.\" class=\"disclosure\">*</span>");
-}
-else
-{
-var count = 0;
-for (var i = 0; i < game.songs.length; ++i) { if (game.songs[i].disclosure) ++count; }
-if ( count == 1)
-{
-buf.push("<span title=\"Full disclosure: I suggested one of the songs that inspired this game.\" class=\"disclosure\">*</span>");
-}
-else if ( count > 1)
-{
-buf.push("<span title=\"Full disclosure: I suggested several of the songs that inspired this game.\" class=\"disclosure\">*</span>");
-}
-}
-buf.push("</span> by <span class=\"author\">" + (jade.escape(null == (jade_interp = game.author) ? "" : jade_interp)) + "</span></a><div class=\"links\"><span class=\"link songs\">");
+buf.push("<div class=\"links\"><span class=\"link songs\">");
 if ( game.songs.length > 1)
 {
 buf.push("songs: ");
@@ -454,7 +437,7 @@ buf.push("</div></div>");
     for (var $index in $$obj) {
       $$l++;      var game = $$obj[$index];
 
-buf.push("<div class=\"game\"><a" + (jade.attr("href", game.play, true, false)) + " target=\"_blank\" class=\"play\"><span class=\"name\">" + (jade.escape(null == (jade_interp = game.name) ? "" : jade_interp)));
+buf.push("<div class=\"game\"><a" + (jade.attr("href", game.play, true, false)) + " target=\"_blank\" class=\"play\"><span class=\"name\">" + (jade.escape(null == (jade_interp = game.name) ? "" : jade_interp)) + "</span></a> by <span class=\"author\">" + (jade.escape(null == (jade_interp = game.author) ? "" : jade_interp)) + "</span>");
 if ( game.author == 'Jacques Frechet')
 {
 buf.push("<span title=\"Full disclosure: I wrote this game.\" class=\"disclosure\">*</span>");
@@ -463,24 +446,7 @@ else if ( game.disclosure)
 {
 buf.push("<span title=\"Full disclosure: I helped test this game.\" class=\"disclosure\">*</span>");
 }
-else if ( game.songs.length == 1 && game.songs[0].disclosure)
-{
-buf.push("<span title=\"Full disclosure: I suggested the song that inspired this game.\" class=\"disclosure\">*</span>");
-}
-else
-{
-var count = 0;
-for (var i = 0; i < game.songs.length; ++i) { if (game.songs[i].disclosure) ++count; }
-if ( count == 1)
-{
-buf.push("<span title=\"Full disclosure: I suggested one of the songs that inspired this game.\" class=\"disclosure\">*</span>");
-}
-else if ( count > 1)
-{
-buf.push("<span title=\"Full disclosure: I suggested several of the songs that inspired this game.\" class=\"disclosure\">*</span>");
-}
-}
-buf.push("</span> by <span class=\"author\">" + (jade.escape(null == (jade_interp = game.author) ? "" : jade_interp)) + "</span></a><div class=\"links\"><span class=\"link songs\">");
+buf.push("<div class=\"links\"><span class=\"link songs\">");
 if ( game.songs.length > 1)
 {
 buf.push("songs: ");
@@ -11822,21 +11788,27 @@ body a {
 body a:hover {
   text-decoration: underline;
 }
+body a:active {
+  color: #f00;
+}
 #loading,
 .pane {
   padding: 0 1em;
 }
-#question {
+#question,
+#games {
   padding: 0;
 }
 .question,
 .answer,
-.skips a {
+.skips a,
+.game {
   padding: 0 1em;
 }
 .question,
 .answers,
-.skips {
+.skips,
+.game {
   margin: 0.5em 0;
 }
 #question-container a {
@@ -11868,6 +11840,9 @@ a.answer:hover:before {
 }
 .link:first-child:before {
   content: none;
+}
+.game:hover {
+  background-color: #fff;
 }
 </style></head><body><div id="home" class="pane"><h1 id="jacques-s-guide-to-shufflecomp-2015">Jacques&apos;s Guide to ShuffleComp 2015</h1>
 <p>Hi, my name is Jacques Frechet and this right here is a

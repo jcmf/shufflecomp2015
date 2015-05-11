@@ -12,19 +12,22 @@ html(lang='en')
           font-family sans-serif
           line-height 1.5
           background-color #f8f8f8
+
         body a
           color blue
           text-decoration none
           &:hover
             text-decoration underline
+          &:active
+            color red
 
         #loading, .pane
           padding 0 1em
-        #question
+        #question, #games
           padding 0
-        .question, .answer, .skips a
+        .question, .answer, .skips a, .game
           padding 0 1em
-        .question, .answers, .skips
+        .question, .answers, .skips, .game
           margin 0.5em 0
         #question-container a
           display block
@@ -49,6 +52,9 @@ html(lang='en')
             content ' - '
           &:first-child:before
             content none
+
+        .game:hover
+          background-color white
 
   body
     #home.pane
