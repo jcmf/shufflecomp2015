@@ -11631,7 +11631,7 @@ showPane = function(name) {
 };
 
 showQuestion = function(numbers) {
-  var $q, XXX, a, answered, ch, gameToLetter, i, iQ, j, l, len, len1, len2, len3, mkUrl, myGames, n, o, q, rand, scores, template, url, v;
+  var $q, a, answered, ch, gameToLetter, i, iQ, j, l, len, len1, len2, mkUrl, myGames, n, q, rand, scores, template, v;
   scores = {};
   for (j = 0, len = allGames.length; j < len; j++) {
     k = allGames[j];
@@ -11695,21 +11695,15 @@ showQuestion = function(numbers) {
     myGames.sort(function(a, b) {
       return (scores[b] - scores[a]) || (rand[b] - rand[a]);
     });
-    for (o = 0, len3 = myGames.length; o < len3; o++) {
-      XXX = myGames[o];
-      console.log("XXX " + scores[XXX] + " " + XXX);
-    }
-    url = "#/games=" + (((function() {
-      var len4, p, results;
+    return window.location = "#/games=" + (((function() {
+      var len3, o, results;
       results = [];
-      for (p = 0, len4 = myGames.length; p < len4; p++) {
-        k = myGames[p];
+      for (o = 0, len3 = myGames.length; o < len3; o++) {
+        k = myGames[o];
         results.push(gameToLetter[k]);
       }
       return results;
     })()).join(''));
-    $('.results').attr('href', url);
-    return $('#results').show();
   }
 };
 
@@ -11869,7 +11863,4 @@ happen.  I guess that&apos;s not a bug?  I mean it seems kind
 of poor.  Probably you should assume it&apos;s a bug just to be
 safe.  Because assuming that things are bugs will increase
 your safety somehow I guess.  Safety is important!  Be safe!</p>
-</div><div id="question" style="display: none;" class="pane"><div id="question-container"></div></div><div id="results" style="display: none;" class="pane"><p>omg you answered all of the questions here is a
-<a class="results">link</a>
-to your prize!</p>
-</div><div id="games" style="display: none;" class="pane"><div id="games-container"></div></div></body></html>
+</div><div id="question" style="display: none;" class="pane"><div id="question-container"></div></div><div id="games" style="display: none;" class="pane"><div id="games-container"></div></div></body></html>

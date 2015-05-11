@@ -51,11 +51,7 @@ showQuestion = (numbers) ->
       rand[k] = Math.random()
       gameToLetter[k] = String.fromCharCode i + 'a'.codePointAt(0)
     myGames.sort (a, b) -> (scores[b] - scores[a]) or (rand[b] - rand[a])
-    for XXX in myGames
-      console.log "XXX #{scores[XXX]} #{XXX}"
-    url = "#/games=#{(gameToLetter[k] for k in myGames).join ''}"
-    $('.results').attr 'href', url
-    $('#results').show()
+    window.location = "#/games=#{(gameToLetter[k] for k in myGames).join ''}"
 
 showGames = (letters) ->
   $games = $('#games-container')
