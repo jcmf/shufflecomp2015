@@ -20,22 +20,28 @@ showQuestion = (numbers) ->
   scores = {}
   for k in allGames
     scores[k] = 0
-  nextQ = questions[0]
+  answered = 0
   for ch, iQ in numbers
     q = questions[iQ]
-    nextQ = questions[iQ + 1]
+    answered = iQ + 1
     if not q then return notFound "too many answers: '#{ch}' pos=#{iQ}"
     if ch is '0' then continue
     a = q.a[ch.charCodeAt(0) - '1'.charCodeAt(0)]
     if not a then return notFound "bad answer '#{ch}' pos=#{iQ} q='#{q.q}'"
     for k, v of a when k != 'a'
       scores[k] += v
-  if nextQ
+  if q = questions[answered]
     $q = $ '#question-container'
     $q.empty()
     template = require './question.jade'
-    $q.append template q: nextQ, mkUrl: (i) ->
-      "#!#{numbers}#{String.fromCharCode '1'.charCodeAt(0)+i}"
+    mkUrl = (suffix) -> "#!#{numbers}#{suffix}"
+    assert q.a.length < 10, q.q
+    $q.append template {
+      q
+      mkUrl: (i) -> mkUrl 1+i
+      skipUrl: mkUrl '0'
+      skipAllUrl: mkUrl ('0' for i in [answered...questions.length]).join '' 
+    }
     $('#question').show()
   else
     myGames = allGames[..]

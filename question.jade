@@ -1,7 +1,10 @@
 .question= q.q
 .answers
   each a, i in q.a
-    .answer
-      a(href=mkUrl(i))= a.a
-  .answer.skip
-    a(href=mkUrl(-1)) (skip this question)
+    a.answer(href=mkUrl(i))
+      span.link-text=a.a
+.skips
+  a.skip(href=skipUrl)
+    span.link-text skip this question
+  a.skip-all(href=skipAllUrl)
+    span.link-text skip all remaining questions
