@@ -106,11 +106,8 @@ $ ->
   $('body').on 'click', 'a[href="#back"]', ->
     window.history.back()
     false
-  shown = true
   $('body').on 'click', '.disclosure, .disclosure-control', ->
-    shown = not shown
-    $('.disclosure, .disclosure-shown').toggle shown
-    $('.disclosure-hidden').toggle not shown
+    $('#games').toggleClass 'show-disclosures hide-disclosures'
     false
   $(window).on 'hashchange', hashchange
   hashchange()

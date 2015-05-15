@@ -28,6 +28,11 @@ html(lang='en')
           cursor pointer
           &:hover
             text-decoration line-through
+        .hide-disclosures
+          & .disclosure, & .disclosure-shown
+            display none
+        .show-disclosures .disclosure-hidden
+          display none
 
         #loading, .pane
           padding 0 1em
@@ -141,7 +146,7 @@ html(lang='en')
     #question.pane(style='display: none;')
       #question-container
 
-    #games.pane(style='display: none;')
+    #games.pane.show-disclosures(style='display: none;')
       p.header.
         Here's your list!  Click a name to play in a new tab.
         Bookmark this page to save this ordering.
@@ -161,11 +166,10 @@ html(lang='en')
         are things that might bias me, so I want to make sure
         that's all out in the open.
         <span class='disclosure-shown'>(If the <span
-        class="disclosure-control">\*</span>s bother you, click
-        one to hide them.)</span><span class='disclosure-hidden'
-        style='display: none;'>(Click one of the <span
-        class="disclosure-control">\*</span>s to show them
-        again.)</span>
+        class="disclosure-control">\*</span>s bother you, click one
+        to hide them.)</span><span class='disclosure-hidden'>(Click
+        one of the <span class="disclosure-control">\*</span>s to
+        show them again.)</span>
 
         [home](#) &mdash; [quiz](#!) &mdash; [random](#random) &mdash; [vote][]
 

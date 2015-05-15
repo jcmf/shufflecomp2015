@@ -11789,17 +11789,13 @@ hashchange = function() {
 };
 
 $(function() {
-  var shown;
   $('p a[href^=http]').attr('target', '_blank');
   $('body').on('click', 'a[href="#back"]', function() {
     window.history.back();
     return false;
   });
-  shown = true;
   $('body').on('click', '.disclosure, .disclosure-control', function() {
-    shown = !shown;
-    $('.disclosure, .disclosure-shown').toggle(shown);
-    $('.disclosure-hidden').toggle(!shown);
+    $('#games').toggleClass('show-disclosures hide-disclosures');
     return false;
   });
   $(window).on('hashchange', hashchange);
@@ -11839,6 +11835,13 @@ p.header {
 .disclosure:hover,
 .disclosure-control:hover {
   text-decoration: line-through;
+}
+.hide-disclosures .disclosure,
+.hide-disclosures .disclosure-shown {
+  display: none;
+}
+.show-disclosures .disclosure-hidden {
+  display: none;
 }
 #loading,
 .pane {
@@ -11938,7 +11941,7 @@ kind of poor.  Probably you should assume it&apos;s a bug just
 to be safe.  Because assuming that things are bugs will
 increase your safety somehow I guess.  Safety is important!
 Be safe!</p>
-</div><div id="question" style="display: none;" class="pane"><div id="question-container"></div></div><div id="games" style="display: none;" class="pane"><p class="header">Here&apos;s your list!  Click a name to play in a new tab.
+</div><div id="question" style="display: none;" class="pane"><div id="question-container"></div></div><div id="games" style="display: none;" class="pane show-disclosures"><p class="header">Here&apos;s your list!  Click a name to play in a new tab.
 Bookmark this page to save this ordering.
 </p><div id="games-container"></div><p>Don&apos;t forget to <a href="http://www.nigeljayne.ca/shufflecomp2015.html">vote</a>!</p>
 <p>You can also <a href="http://www.nigeljayne.ca/scd2downloads/SCD2-games.zip">download all of the games in one giant zip
@@ -11948,8 +11951,9 @@ you like.</p>
 wrote or helped test or songs I suggested, all of which
 are things that might bias me, so I want to make sure
 that&apos;s all out in the open.
-<span class="disclosure-shown">(If the <span class="disclosure-control">*</span>s bother you, click
-one to hide them.)</span><span class="disclosure-hidden" style="display: none;">(Click one of the <span class="disclosure-control">*</span>s to show them
-again.)</span></p>
+<span class="disclosure-shown">(If the <span class="disclosure-control">*</span>s bother you, click one
+to hide them.)</span><span class="disclosure-hidden">(Click
+one of the <span class="disclosure-control">*</span>s to
+show them again.)</span></p>
 <p><a href="#">home</a> &#x2014; <a href="#!">quiz</a> &#x2014; <a href="#random">random</a> &#x2014; <a href="http://www.nigeljayne.ca/shufflecomp2015.html">vote</a></p>
 </div></body></html>
