@@ -1,6 +1,6 @@
 {
   "name": "shufflecomp2015",
-  "version": "0.9.5",
+  "version": "0.9.6",
   "description": "Jacques's Guide to ShuffleComp 2015",
   "main": "index.js",
   "dependencies": {},
